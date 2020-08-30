@@ -1,0 +1,36 @@
+First, the assumption is that a Python 3.8 interpreter and PostgreSQL is installed.
+If not, Homebrew can be used to install Python 3.8 and PostgreSQL with the commands
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+to install Homebrew, then the commands
+
+brew install python
+
+to install Python 3.8, and
+
+brew install postgresql
+
+to install PostgreSQL.
+
+Navigate to this "SampleProject" directory in a command line (in my case, in Terminal on macOS.)
+After that, run the command
+
+pip install pipenv
+
+This will install pipenv.
+Create a virtual environment with the required packages for this project by then running
+
+pipenv install
+
+This should install all of the dependencies needed to run the script data_challenge.py into a virtual environment.
+Now, run the command
+
+pipenv run python data_challenge.py
+
+from inside the "SampleProject" project directory, and the project should run as intended.
+After running this script, which will build and populate the Postgres tables, the commands
+
+pipenv run python validation_script.py
+
+can be run to confirm that the shape of the data in each file conforms to the generated columns and row counts in the Postgres tables.
